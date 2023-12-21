@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AboutLayout({
   children,
 }: {
@@ -6,7 +8,7 @@ export default function AboutLayout({
   return (
     <>
       <main>
-        <nav>{'About\'s Nav'}</nav>
+        <nav>{"About's Nav"}</nav>
         {children}
       </main>
     </>
