@@ -3,10 +3,37 @@ import getUser from "@/lib/getUser";
 import { Post, User } from "@/types";
 import getUserPost from "@/lib/getUserPost";
 import UserPost from "@/app/users/[userID]/components/UserPost";
+import { Metadata } from "next";
 
 type Params = {
   params: {
     userID: string;
+  };
+};
+
+export const generateMetadata = async ({
+  params: { userID },
+}: Params): Promise<Metadata> => {
+  const userData: Promise<User> = getUser(userID);
+  const user = await userData;
+  return {
+    title: user.name,
+    description:
+      user.id +
+      " " +
+      user.name +
+      " " +
+      user.email +
+      " " +
+      user.address +
+      " " +
+      user.website +
+      " " +
+      user.company +
+      " " +
+      user.phone +
+      " " +
+      user.username,
   };
 };
 
