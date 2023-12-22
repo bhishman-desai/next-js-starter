@@ -1,4 +1,4 @@
-import {Post, User} from "@/types";
+import { Post } from "@/types";
 
 const getUserPost = async (userID: string): Promise<Post[]> => {
   const response = await fetch(
